@@ -1,0 +1,34 @@
+[package]
+name = "rasterizer-rs"
+version = "0.1.0"
+edition = "2021"
+authors = ["Semen Syrovatskiy <syrovatskiy@qapl.ru>"]
+
+[lib]
+name = "rasterizer"
+path = "src/lib.rs"
+doctest = false
+
+[dependencies]
+base64 = "0.21.0"
+dotenv = "0.15.0"
+fantoccini = "0.19.3"
+poem = { version = "1.3.55", features = ["native-tls", "test"] }
+poem-openapi = { version = "2.0.26", features = ["swagger-ui", "url"] }
+serde = { version = "1.0.152", features = ["derive"] }
+serde_json = "1.0.93"
+thiserror = "1.0.38"
+tokio = "1.25.0"
+url = "2.3.1"
+
+[dependencies.sqlx]
+version = "0.6.2"
+default-features = false
+features = [
+    "runtime-tokio-native-tls",
+    "postgres",
+    "migrate",
+    "macros",
+    "uuid",
+    "chrono",
+]

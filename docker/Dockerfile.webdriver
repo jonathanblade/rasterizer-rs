@@ -1,0 +1,10 @@
+FROM debian:buster-slim
+
+RUN apt-get update && apt-get install -y firefox-esr wget
+
+RUN wget -q "https://github.com/mozilla/geckodriver/releases/download/v0.32.2/geckodriver-v0.32.2-linux-aarch64.tar.gz" \
+    -O /tmp/geckodriver.tgz \
+    && tar zxf /tmp/geckodriver.tgz -C /usr/bin/ \
+    && rm /tmp/geckodriver.tgz
+
+CMD /usr/bin/geckodriver --host 0.0.0.0 --port 4444
